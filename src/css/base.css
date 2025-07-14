@@ -1,0 +1,31 @@
+:root {
+  --color-bg-primary: #232136;
+  --color-fg-primary: #e0def4;
+  --color-main-primary: #eb6f92;
+  --color-main-secondary: #f6c177;
+  --color-main-tertiary: #31748f;
+  --color-iris: #c4a7e7;
+  --color-muted: #6e6a86;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-primary);
+  color: var(--color-fg-primary);
+  font-family: monospace;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 5rem;
+}
