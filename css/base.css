@@ -73,3 +73,20 @@ a::after {
   align-items: center;
   min-height: 100vh;
 }
+
+.multi-color-text {
+  color: var(--color-fg-primary);
+  font-size: 2rem;
+}
+
+.multi-color-text > span:nth-child(1) {
+  color: var(--color-main-secondary);
+}
+
+.multi-color-text > span:nth-child(2) {
+  color: var(--color-main-primary);
+}
+
+.multi-color-text > span:nth-child(3) {
+  color: var(--color-iris);
+}

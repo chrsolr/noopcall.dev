@@ -1,0 +1,7 @@
+.blog-posts {
+  list-style: none;
+}
+
+.blog-posts > li {
+  margin-top: 0.25rem;
+}

@@ -1,28 +1,7 @@
-.home-title {
-  font-size: 2rem;
-}
-
-.home-title > span:nth-child(1) {
-  color: var(--color-main-secondary);
-}
-
-.home-title > span:nth-child(2) {
-  color: var(--color-main-primary);
-}
-
-.home-title > span:nth-child(3) {
-  color: var(--color-iris);
-}
-
 .home-subtitle {
   margin-top: 0.25rem;
 }
 
 .home-links {
   margin-top: 1rem;
-}
-
-.home-links > a {
-  color: var(--color-main-primary);
-  text-decoration: none;
 }
