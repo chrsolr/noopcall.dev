@@ -26,6 +26,35 @@ html {
   box-sizing: border-box;
 }
 
+a {
+  color: var(--color-main-primary);
+  text-decoration: none;
+}
+
 .container {
   margin: 0 5rem;
+  flex: 1;
+}
+
+.nav-bar {
+  display: flex;
+  background-color: var(--color-bg-primary);
+  color: var(--color-fg-primary);
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links > a {
+  margin: 0 1rem;
+}
+
+.nav-links > a.active {
+  color: var(--color-main-secondary);
 }
