@@ -65,3 +65,11 @@ a::after {
 .nav-links > a.active {
   color: var(--color-main-secondary);
 }
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
