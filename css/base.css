@@ -6,6 +6,7 @@
   --color-main-tertiary: #31748f;
   --color-iris: #c4a7e7;
   --color-muted: #6e6a86;
+  --nav-bar-height: 50px;
 }
 
 body,
@@ -50,6 +51,7 @@ a::after {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  height: var(--nav-bar-height);
 }
 
 .nav-links {
@@ -71,7 +73,7 @@ a::after {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--nav-bar-height)) !important;
 }
 
 .multi-color-text {
