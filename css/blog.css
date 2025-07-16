@@ -1,5 +1,6 @@
 .desktop-blog-posts {
   list-style: none;
+  margin-top: 0.5rem;
 }
 
 .desktop-blog-posts > li {
@@ -7,7 +8,7 @@
 }
 
 .none-desktop-blog-posts {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .none-desktop-blog-posts > section > span {
