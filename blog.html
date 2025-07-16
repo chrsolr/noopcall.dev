@@ -3,10 +3,13 @@
   <head>
     <title>noopcall.dev - blog</title>
 
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg" />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link href="css/base.css" rel="stylesheet" />
+    <link href="css/queries.css" rel="stylesheet" />
     <link href="css/blog.css" rel="stylesheet" />
   </head>
 
@@ -25,11 +28,40 @@
       </nav>
 
       <section class="center-content">
-        <section class="multi-color-text">
+        <section class="title multi-color-text">
           <span>latest</span><span>post</span>
         </section>
 
-        <ul class="blog-posts">
+        <div class="post-list">
+          <section>
+            <span>April 4, 2016</span>
+            <a
+              href="https://github.com/chrsolr/chrsolr/blob/main/blog/show-hide-bootstrap-navbar-on-scroll.md"
+              target="_blank"
+              >Show/Hide Bootstrap Navbar on Scroll</a
+            >
+          </section>
+
+          <section>
+            <span>March 23, 2016</span>
+            <a
+              href="https://github.com/chrsolr/chrsolr/blob/main/blog/animate-bootstrap-menu-icon-to-x.md"
+              target="_blank"
+              >Animate Bootstrap Menu Icon To (X)</a
+            >
+          </section>
+
+          <section>
+            <span>July 11, 2015</span>
+            <a
+              href="https://github.com/chrsolr/chrsolr/blob/main/blog/codercamps-bootcamp-as-a-student.md"
+              target="_blank"
+              >CoderCamps Bootcamp as a Student</a
+            >
+          </section>
+        </div>
+
+        <ul class="blog-posts hidden">
           <li>
             <a
               href="https://github.com/chrsolr/chrsolr/blob/main/blog/show-hide-bootstrap-navbar-on-scroll.md"

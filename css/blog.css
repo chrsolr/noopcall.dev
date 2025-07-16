@@ -5,3 +5,15 @@
 .blog-posts > li {
   margin-top: 0.25rem;
 }
+
+.post-list > section > span {
+  display: block;
+}
+
+.post-list > section {
+  margin-bottom: 1rem;
+}
+
+.post-list {
+  margin-top: 1rem;
+}

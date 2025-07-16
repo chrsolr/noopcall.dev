@@ -1,0 +1,17 @@
+/* Tablet breakpoint (≤ 900px) */
+@media (max-width: 900px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Mobile breakpoint (≤ 600px) */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}

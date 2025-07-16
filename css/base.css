@@ -32,6 +32,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: var(--color-iris);
+}
+
 a::before {
   content: "_";
 }
@@ -48,7 +52,7 @@ a::after {
   display: flex;
   background-color: var(--color-bg-primary);
   color: var(--color-fg-primary);
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
   height: var(--nav-bar-height);
@@ -76,9 +80,12 @@ a::after {
   min-height: calc(100vh - var(--nav-bar-height)) !important;
 }
 
+.title {
+  font-size: 2rem;
+}
+
 .multi-color-text {
   color: var(--color-fg-primary);
-  font-size: 2rem;
 }
 
 .multi-color-text > span:nth-child(1) {
@@ -91,4 +98,8 @@ a::after {
 
 .multi-color-text > span:nth-child(3) {
   color: var(--color-iris);
+}
+
+.hidden {
+  display: none;
 }
