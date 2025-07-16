@@ -1,19 +1,19 @@
-.blog-posts {
+.desktop-blog-posts {
   list-style: none;
 }
 
-.blog-posts > li {
+.desktop-blog-posts > li {
   margin-top: 0.25rem;
 }
 
-.post-list > section > span {
+.none-desktop-blog-posts {
+  margin-top: 1rem;
+}
+
+.none-desktop-blog-posts > section > span {
   display: block;
 }
 
-.post-list > section {
+.none-desktop-blog-posts > section {
   margin-bottom: 1rem;
-}
-
-.post-list {
-  margin-top: 1rem;
 }
