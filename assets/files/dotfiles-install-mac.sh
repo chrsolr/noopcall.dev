@@ -62,7 +62,7 @@ fi
 
 name="NVM"
 if ask_user "Install $name?"; then
-  brew install nvm
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
   echo "Finished $name installation!"
 else
   echo "Skipping $name..."
