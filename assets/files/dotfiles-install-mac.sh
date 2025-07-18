@@ -76,6 +76,22 @@ else
   echo "Skipping $name..."
 fi
 
+name="ZSH"
+if ask_user "Install $name?"; then
+  brew install zsh
+  echo "Finished $name installation!"
+else
+  echo "Skipping $name..."
+fi
+
+name="Oh My ZSH"
+if ask_user "Install $name?"; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "Finished $name installation!"
+else
+  echo "Skipping $name..."
+fi
+
 end_time=$(date +%s)
 elapsed=$(( end_time - start_time ))
 minutes=$(( elapsed / 60 ))
