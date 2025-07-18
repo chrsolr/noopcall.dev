@@ -86,7 +86,15 @@ fi
 
 name="Oh My ZSH"
 if ask_user "Install $name?"; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "Finished $name installation!"
+else
+  echo "Skipping $name..."
+fi
+
+name="ZSH Auto-Suggestions"
+if ask_user "Install $name?"; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   echo "Finished $name installation!"
 else
   echo "Skipping $name..."
