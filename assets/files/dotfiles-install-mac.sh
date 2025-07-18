@@ -108,6 +108,14 @@ else
   echo "Skipping $name..."
 fi
 
+name="Dotfiles"
+if ask_user "Download $name?"; then
+  git clone git@github.com:chrsolr/dotfiles ~/dev/dotfiles
+  echo "$name downloaded!"
+else
+  echo "Skipping $name..."
+fi
+
 name="Symbolic Links"
 if ask_user "Create $name?"; then
   echo "Making Directories..."
