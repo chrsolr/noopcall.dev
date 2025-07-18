@@ -100,6 +100,38 @@ else
   echo "Skipping $name..."
 fi
 
+name="Dotnet"
+if ask_user "Install $name?"; then
+  brew install dotnet
+  echo "Finished $name installation!"
+else
+  echo "Skipping $name..."
+fi
+
+name="Symbolic Links"
+if ask_user "Create $name?"; then
+  echo "Making Directories..."
+  mkdir -p ~/.config/ghostty
+
+  echo "Creating links..."
+  ln -sf ~/dev/dotfiles/vim/.vimrc ~/.vimrc
+  ln -sf ~/dev/dotfiles/zshrc/.zshrc ~/.zshrc
+  ln -sf ~/dev/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+  ln -sf ~/dev/dotfiles/ghostty/mac.config ~/.config/ghostty/config
+
+  echo "Finished with $name!"
+else
+  echo "Skipping $name..."
+fi
+
+name="Node LTS"
+if ask_user "Install $name?"; then
+  zsh -i -c 'source ~/.zshrc && nvm install --lts'
+  echo "Finished $name installation!"
+else
+  echo "Skipping $name..."
+fi
+
 end_time=$(date +%s)
 elapsed=$(( end_time - start_time ))
 minutes=$(( elapsed / 60 ))
