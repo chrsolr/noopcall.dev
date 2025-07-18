@@ -134,11 +134,17 @@ fi
 
 name="Node LTS"
 if ask_user "Install $name?"; then
-  zsh -i -c 'source ~/.zshrc && nvm install --lts'
+  zsh -i -c 'source ~/.zshrc && nvm install --lts && nvm use --lts'
   echo "Finished $name installation!"
 else
   echo "Skipping $name..."
 fi
+
+name="Ghostty"
+if ask_user "Open $name?"; then
+  open -na ghostty --args --working-directory="$(pwd)"
+fi
+
 
 end_time=$(date +%s)
 elapsed=$(( end_time - start_time ))
@@ -146,4 +152,5 @@ minutes=$(( elapsed / 60 ))
 seconds=$(( elapsed % 60 ))
 
 echo "Script completed in ${minutes}m ${seconds}s."
+
 
