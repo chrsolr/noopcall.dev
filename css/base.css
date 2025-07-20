@@ -88,15 +88,15 @@ a::after {
   color: var(--color-fg-primary);
 }
 
-.multi-color-text > span:nth-child(1) {
+.multi-color-text span:nth-of-type(1) {
   color: var(--color-main-secondary);
 }
 
-.multi-color-text > span:nth-child(2) {
+.multi-color-text span:nth-of-type(2) {
   color: var(--color-main-primary);
 }
 
-.multi-color-text > span:nth-child(3) {
+.multi-color-text span:nth-of-type(3) {
   color: var(--color-iris);
 }
 
