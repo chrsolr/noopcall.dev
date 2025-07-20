@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* | **Custom Variable**      | **Hex**   | **Closest Tailwind Class**             | **Tailwind Hex**                     | */
+/* | ------------------------ | --------- | -------------------------------------- | ------------------------------------ | */
+/* | `--color-bg-primary`     | `#232136` | `bg-gray-900` or `bg-slate-900`        | `#0f172a` (slate) / `#111827` (gray) | */
+/* | `--color-fg-primary`     | `#e0def4` | `text-slate-100` or `text-gray-100`    | `#f1f5f9` (slate) / `#f3f4f6` (gray) | */
+/* | `--color-main-primary`   | `#eb6f92` | `text-rose-400` or `text-pink-400`     | `#fb7185` / `#f472b6`                | */
+/* | `--color-main-secondary` | `#f6c177` | `text-amber-300`                       | `#fcd34d`                            | */
+/* | `--color-main-tertiary`  | `#31748f` | `text-cyan-700` or `text-sky-700`      | `#0e7490` (cyan) / `#0369a1` (sky)   | */
+/* | `--color-iris`           | `#c4a7e7` | `text-purple-300` or `text-violet-300` | `#d8b4fe` (violet)                   | */
+/* | `--color-muted`          | `#6e6a86` | `text-gray-500` or `text-slate-500`    | `#6b7280` (gray) / `#64748b` (slate) | */
+/* | `--nav-bar-height`       | `50px`    | (Use directly as `h-[50px]`)           | Custom utility needed                | */
+
 @tailwind utilities;
 
 @custom-variant dark (&:is(.dark *));
@@ -44,6 +55,15 @@
 }
 
 :root {
+  /* --color-bg-primary: #232136; */
+  /* --color-fg-primary: #e0def4; */
+  /* --color-main-primary: #eb6f92; */
+  /* --color-main-secondary: #f6c177; */
+  /* --color-main-tertiary: #31748f; */
+  /* --color-iris: #c4a7e7; */
+  /* --color-muted: #6e6a86; */
+  /* --nav-bar-height: 50px; */
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -118,14 +138,6 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-  }
-
-  .link-decorated::before {
-    content: "_";
-  }
-
-  .link-decorated::after {
-    content: "_";
+    @apply font-mono bg-slate-900 text-gray-100;
   }
 }
