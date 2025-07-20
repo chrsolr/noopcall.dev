@@ -3,7 +3,7 @@ import { Typography } from "@/components/ui/typography";
 
 function home() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center ">
+    <div className="flex min-h-[calc(100svh-50px)] flex-col items-center justify-center ">
       <section className="text-center">
         <Typography as="h1" className="text-3xl font-medium lowercase">
           <span className="text-rose-400">noop</span>
