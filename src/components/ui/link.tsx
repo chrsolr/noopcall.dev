@@ -10,10 +10,14 @@ function Link(
   return (
     <a
       ref={ref}
-      className={className + cn("no-underline relative link-decorated")}
+      className={
+        cn(
+          "text-rose-400 hover:text-violet-300 active:text-amber-300 no-underline relative link-decorated",
+        ) + className
+      }
       {...props}
     >
-      {children}
+      {"_" + children + "_"}
     </a>
   );
 }
