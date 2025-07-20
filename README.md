@@ -1,3 +1,0 @@
-# NoopCall
-
-Personal Website
