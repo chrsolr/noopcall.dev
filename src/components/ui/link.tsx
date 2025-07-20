@@ -1,29 +1,52 @@
 import { cn } from "@/lib/utils";
-import React from "react";
+import { Link, type LinkProps } from "react-router-dom";
 
-type Props = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+type Props = {
+  isActive?: boolean;
+  isExternal?: boolean;
+} & LinkProps;
 
-function Link(
-  { children, className, ...props }: Props,
-  ref: React.Ref<HTMLAnchorElement>,
-) {
+function Anchor({
+  to,
+  children,
+  className,
+  isActive,
+  isExternal,
+  ...props
+}: Props) {
+  if (isExternal) {
+    return (
+      <a
+        href={to as string}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...props}
+        className={
+          cn(
+            isActive ? "text-amber-300" : "text-rose-400",
+            "hover:text-violet-300 active:text-amber-300 no-underline relative link-decorated",
+          ) + className
+        }
+      >
+        {"_" + children + "_"}
+      </a>
+    );
+  }
+
   return (
-    <a
-      ref={ref}
+    <Link
+      to={to}
+      {...props}
       className={
         cn(
-          "text-rose-400 hover:text-violet-300 active:text-amber-300 no-underline relative link-decorated",
+          isActive ? "text-amber-300" : "text-rose-400",
+          "hover:text-violet-300 active:text-amber-300 no-underline relative link-decorated",
         ) + className
       }
-      {...props}
     >
       {"_" + children + "_"}
-    </a>
+    </Link>
   );
 }
 
-const ForwardedLink = React.forwardRef<HTMLAnchorElement, Props>(Link);
-
-ForwardedLink.displayName = "Link";
-
-export { ForwardedLink as Link };
+export { Anchor as Link };
