@@ -28,7 +28,7 @@ function Anchor({
           ) + className
         }
       >
-        {"_" + children + "_"}
+        {"[:" + children + ":]"}
       </a>
     );
   }
@@ -44,7 +44,7 @@ function Anchor({
         ) + className
       }
     >
-      {"_" + children + "_"}
+      {"[:" + children + ":]"}
     </Link>
   );
 }

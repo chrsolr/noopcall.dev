@@ -9,11 +9,9 @@ function NavBar() {
       <Link to="/" isActive={location.pathname === "/"}>
         home
       </Link>
-      :|:
       <Link to="/blog" isActive={location.pathname === "/blog"}>
         blog
       </Link>
-      :|:
       <Link
         isExternal
         rel="noopener noreferrer"
