@@ -1,9 +1,17 @@
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Typography } from "@/components/ui/typography";
 import { getAoCReadme } from "@/services/github";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
-import orderBy from "lodash.orderby";
 import groupBy from "lodash.groupby";
+import orderBy from "lodash.orderby";
+import { useEffect, useState } from "react";
 
 type AdventOfCode = {
   year: number;
@@ -65,8 +73,40 @@ function extractAcCTables(markdown: string): AdventOfCode[] {
   return aocs;
 }
 
+function AoCTable({ title, aocs }: { title: string; aocs: AdventOfCode[] }) {
+  return (
+    <div className="mb-6">
+      <Typography as="h3" className="text-xl font-medium lowercase mb-4">
+        {title}
+      </Typography>
+      <Table className="border border-slate-700 bg-slate-800  rounded overflow-hidden">
+        <TableHeader className="bg-slate-800 ">
+          <TableRow className="text-gray-100 ">
+            <TableHead className="text-gray-100">Year</TableHead>
+            <TableHead className="text-gray-100">Day</TableHead>
+            <TableHead className="text-gray-100">Code</TableHead>
+            <TableHead className="text-gray-100">Challenge</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {aocs.map(({ year, day, challengeUrl, codeUrl }) => (
+            <TableRow key={`${year}-${day}`}>
+              <TableCell className="font-medium">{year}</TableCell>
+              <TableCell>{day}</TableCell>
+              <TableCell>{codeUrl}</TableCell>
+              <TableCell>{challengeUrl}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  );
+}
+
 function AoC() {
-  const [, setItems] = useState<Record<string, AdventOfCode[]> | undefined>();
+  const [items, setItems] = useState<
+    Record<string, AdventOfCode[]> | undefined
+  >();
   const { data, isLoading } = useQuery({
     queryKey: ["aoc-readme"],
     queryFn: () => getAoCReadme(),
@@ -79,21 +119,19 @@ function AoC() {
     const groupedItems = groupBy(orederedItems, "lang");
 
     setItems(groupedItems);
-
-    console.log(groupedItems);
   }, [data]);
 
   if (isLoading) {
     return <></>;
   }
 
+  // TODO: Split by lang and year
   return (
-    <div className="flex min-h-[calc(100svh-50px)] flex-col items-center justify-center ">
-      <section className="text-center">
-        <Typography as="h1" className="text-3xl font-medium lowercase">
-          Coming Soon
-        </Typography>
-      </section>
+    <div className="flex min-h-[calc(100svh-50px)] flex-col container mx-auto px-6">
+      {items &&
+        Object.entries(items!).map(([lang, aocs], index) => (
+          <AoCTable key={index.toString()} title={lang} aocs={aocs} />
+        ))}
     </div>
   );
 }
