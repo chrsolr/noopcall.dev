@@ -164,7 +164,6 @@ function AoC() {
     return <></>;
   }
 
-  // TODO: Split by lang and year
   return (
     <div className="flex min-h-[calc(100svh-50px)] flex-col container mx-auto px-6">
       <section className="text-center">
