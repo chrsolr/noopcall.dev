@@ -16,7 +16,7 @@ function extractAcCTables(markdown: string): AdventOfCode[] {
     return [];
   }
 
-  const lines = markdown.split("\n");
+  // const lines = markdown.split("\n");
 
   return [];
 }
