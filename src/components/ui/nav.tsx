@@ -1,5 +1,3 @@
-import { Link } from "@/components/ui/link";
-import { useLocation } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,6 +6,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Link } from "@/components/ui/link";
+import { useLocation } from "react-router-dom";
 
 function NavBar() {
   const location = useLocation();
@@ -38,7 +38,7 @@ function NavBar() {
           <DropdownMenuLabel>Pages</DropdownMenuLabel>
           <DropdownMenuItem
             asChild
-            className="hover:!bg-slate-700 justify-center text-center cursor-pointer"
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
           >
             <Link
               to="/advent-of-code"
@@ -52,7 +52,7 @@ function NavBar() {
           <DropdownMenuLabel>Misc</DropdownMenuLabel>
           <DropdownMenuItem
             asChild
-            className="hover:!bg-slate-700 justify-center text-center cursor-pointer"
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
           >
             <Link
               isExternal
