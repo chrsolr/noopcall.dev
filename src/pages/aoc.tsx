@@ -138,11 +138,15 @@ function AoC() {
   });
 
   useEffect(() => {
-    const aocItems = extractAcCTables(data!);
+    if (!data) {
+      return;
+    }
 
-    const orederedItems = orderBy(aocItems, ["lang", "year", "day"]);
+    const aocItems = extractAcCTables(data);
 
-    const groupedItems = orederedItems.reduce((memo, aoc) => {
+    const orderedItems = orderBy(aocItems, ["lang", "year", "day"]);
+
+    const groupedItems = orderedItems.reduce((memo, aoc) => {
       const { year, lang } = aoc;
       if (!memo[lang]) {
         memo[lang] = {};
