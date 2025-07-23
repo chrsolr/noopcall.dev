@@ -100,8 +100,8 @@ function AoCTable({ title, aocs }: { title: string; aocs: AdventOfCode[] }) {
               key={`${year}-${day}`}
               className="hover:bg-none hover:bg-transparent border-slate-950"
             >
-              <TableCell className="font-medium">{year}</TableCell>
-              <TableCell>{day}</TableCell>
+              <TableCell className="text-gray-400">{year}</TableCell>
+              <TableCell className="text-gray-400">{day}</TableCell>
               <TableCell>
                 <Link
                   isExternal

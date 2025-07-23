@@ -15,7 +15,8 @@ function NavBar() {
   const isMoreMenuActive = () => {
     return (
       location.pathname === "/advent-of-code" ||
-      location.pathname === "/apps/binary-clock"
+      location.pathname === "/binary-clock" ||
+      location.pathname === "/mouse-sens"
     );
   };
 
@@ -51,6 +52,17 @@ function NavBar() {
               Advent of Code
             </Link>
           </DropdownMenuItem>
+          <DropdownMenuItem
+            asChild
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
+          >
+            <Link
+              to="/mouse-sens"
+              isActive={location.pathname === "/mouse-sens"}
+            >
+              Mouse Sens
+            </Link>
+          </DropdownMenuItem>
 
           <DropdownMenuSeparator className="bg-slate-900" />
 
@@ -60,8 +72,8 @@ function NavBar() {
             className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
           >
             <Link
-              to="/apps/binary-clock"
-              isActive={location.pathname === "/apps/binary-clock"}
+              to="/binary-clock"
+              isActive={location.pathname === "/binary-clock"}
             >
               Binary Clock
             </Link>

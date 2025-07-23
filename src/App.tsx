@@ -4,6 +4,7 @@ import Home from "@/pages/home";
 import { Blog } from "@/pages/blog";
 import { AoC } from "./pages/aoc";
 import { BinaryClock } from "./pages/binary-clock";
+import { MouseSens } from "./pages/mouse-sens";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/advent-of-code" element={<AoC />} />
-        <Route path="/apps/binary-clock" element={<BinaryClock />} />
+        <Route path="/binary-clock" element={<BinaryClock />} />
+        <Route path="/mouse-sens" element={<MouseSens />} />
       </Routes>
     </main>
   );
