@@ -9,6 +9,17 @@ export type MouseSensitivity = {
   mouse: string | null;
 };
 
+export type MouseSensitivityResponse = {
+  Game: string;
+  Hip: number | string;
+  ADS: number | string;
+  FOV: number | null;
+  DPI: number;
+  cm_per_360: number | null;
+  Extras: string | null;
+  Mouse: string | null;
+};
+
 export async function getAoCReadme(): Promise<string | undefined> {
   return fetch(
     "https://raw.githubusercontent.com/chrsolr/advent-of-code/refs/heads/main/README.md",
@@ -26,7 +37,7 @@ export async function getMouseSens(): Promise<MouseSensitivity[] | undefined> {
   )
     .then((res) => res.json())
     .then((sens) =>
-      sens?.map((s) => ({
+      sens?.map((s: MouseSensitivityResponse) => ({
         game: s.Game,
         hip: s.Hip,
         ads: s.ADS,
