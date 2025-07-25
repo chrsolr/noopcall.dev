@@ -15,7 +15,8 @@ function NavBar() {
   const isMoreMenuActive = () => {
     return (
       location.pathname === "/advent-of-code" ||
-      location.pathname === "/binary-clock" ||
+      location.pathname === "/apps/binary-clock" ||
+      location.pathname === "/apps/flip-a-coin" ||
       location.pathname === "/mouse-sens"
     );
   };
@@ -72,12 +73,25 @@ function NavBar() {
             className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
           >
             <Link
-              to="/binary-clock"
-              isActive={location.pathname === "/binary-clock"}
+              to="/apps/binary-clock"
+              isActive={location.pathname === "/apps/binary-clock"}
             >
               Binary Clock
             </Link>
           </DropdownMenuItem>
+
+          <DropdownMenuItem
+            asChild
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
+          >
+            <Link
+              to="/apps/flip-a-coin"
+              isActive={location.pathname === "/apps/flip-a-coin"}
+            >
+              Flip a Coin
+            </Link>
+          </DropdownMenuItem>
+
           <DropdownMenuSeparator className="bg-slate-900" />
 
           <DropdownMenuLabel>Misc</DropdownMenuLabel>

@@ -1,7 +1,7 @@
 import { Link } from "@/components/ui/link";
 import { Typography } from "@/components/ui/typography";
 
-function home() {
+function Home() {
   return (
     <div className="flex min-h-[calc(100svh-50px)] flex-col items-center justify-center ">
       <section className="text-center">
@@ -21,4 +21,4 @@ function home() {
   );
 }
 
-export default home;
+export { Home };
