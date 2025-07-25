@@ -14,6 +14,7 @@ function FlipACoin() {
 
   const onFlip = () => {
     setIsFlipping(true);
+    setCurrentSide(null);
 
     const delay = Math.floor(Math.random() * (1500 - 700 + 1)) + 700;
 
