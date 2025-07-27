@@ -9,9 +9,6 @@ function FlipACoin() {
   const [isFlipping, setIsFlipping] = useState<boolean>(false);
   const [count, setCount] = useState({ heads: 0, tails: 0 });
 
-  // TODO: Implement debounce
-  // TODO: Implement cookies or zutang to keep track across refresh
-
   const onFlip = () => {
     setIsFlipping(true);
     setCurrentSide(null);

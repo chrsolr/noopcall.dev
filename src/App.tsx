@@ -6,6 +6,7 @@ import { AoC } from "./pages/aoc";
 import { BinaryClock } from "./pages/binary-clock";
 import { MouseSens } from "./pages/mouse-sens";
 import { FlipACoin } from "./pages/flip-a-coin";
+import { RandomPicker } from "./pages/random-picker";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/mouse-sens" element={<MouseSens />} />
         <Route path="/apps/binary-clock" element={<BinaryClock />} />
         <Route path="/apps/flip-a-coin" element={<FlipACoin />} />
+        <Route path="/apps/random-picker" element={<RandomPicker />} />
       </Routes>
     </main>
   );
