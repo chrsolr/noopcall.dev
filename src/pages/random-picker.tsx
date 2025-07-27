@@ -29,7 +29,7 @@ function RandomPicker() {
       return;
     }
 
-    setItems([...items, currentValue]);
+    setItems([...items, currentValue.trim()]);
     setCurrentValue("");
     setInvalidItems([]);
     setSelectedItem(null);
@@ -56,7 +56,7 @@ function RandomPicker() {
     }
 
     if (e.key === "Enter") {
-      setItems([...items, value]);
+      setItems([...items, value.trim()]);
       setCurrentValue("");
       setInvalidItems([]);
       setSelectedItem(null);
