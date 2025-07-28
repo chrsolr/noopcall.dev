@@ -18,6 +18,7 @@ function NavBar() {
       location.pathname === "/apps/binary-clock" ||
       location.pathname === "/apps/flip-a-coin" ||
       location.pathname === "/apps/random-picker" ||
+      location.pathname === "/apps/riddles" ||
       location.pathname === "/mouse-sens"
     );
   };
@@ -102,6 +103,18 @@ function NavBar() {
               isActive={location.pathname === "/apps/random-picker"}
             >
               Random Picker
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem
+            asChild
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
+          >
+            <Link
+              to="/apps/riddles"
+              isActive={location.pathname === "/apps/riddles"}
+            >
+              Riddles
             </Link>
           </DropdownMenuItem>
 
