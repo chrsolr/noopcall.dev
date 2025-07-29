@@ -1,21 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
+import { getRandomRiddle, getRiddleCount } from "@/services/riddles";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-
-type Riddle = {
-  riddle: string;
-  answer: string;
-};
 
 const CONSTANTS = {
   URL: "https://riddles-api.vercel.app/random",
   QUERY_KEY: "RIDDLES",
 } as const;
 
+// TODO: Add categories
+
 function Riddles() {
   const [showAnswer, setShowAnswer] = useState(false);
   const queryClient = useQueryClient();
+
+  const riddleCount = getRiddleCount();
+  // const categories = getCategories();
 
   const { data: riddle, isLoading } = useQuery({
     queryKey: [CONSTANTS.QUERY_KEY],
@@ -23,42 +24,7 @@ function Riddles() {
     refetchOnMount: false, // Don't refetch on remount
     refetchOnReconnect: false, // Don't refetch on reconnect
     staleTime: Infinity, // Data stays fresh forever
-    queryFn: async () => {
-      const response = await fetch(CONSTANTS.URL);
-
-      if (!response.ok) {
-        return null;
-      }
-
-      return (await response.json()) as Riddle;
-
-      // let attemptCount = 0;
-      // const maxAttempts = 5;
-      //
-      // while (attemptCount < maxAttempts) {
-      //   const response = await fetch(CONSTANTS.URL);
-      //
-      //   if (!response.ok) {
-      //     return null;
-      //   }
-      //
-      //   const data = (await response.json()) as Riddle;
-      //
-      //   const wordCount = data.answer.trim().split(/\s+/).length;
-      //   if (wordCount <= 5) {
-      //     return data;
-      //   }
-      //
-      //   attemptCount++;
-      // }
-      //
-      // // If all attempts return long answers, just return the last one
-      // const lastResponse = await fetch(CONSTANTS.URL);
-      // if (!lastResponse.ok) {
-      //   return null;
-      // }
-      // return (await lastResponse.json()) as Riddle;
-    },
+    queryFn: () => getRandomRiddle(),
   });
 
   if (isLoading) {
@@ -68,14 +34,18 @@ function Riddles() {
   return (
     <div className="flex min-h-[calc(100svh-50px)] flex-col container mx-auto px-6 justify-center items-center">
       <section className="text-center">
-        <Typography as="h1" className="text-3xl font-medium lowercase m-8">
+        <Typography as="h1" className="text-3xl font-medium lowercase">
           <span className="text-rose-400">Riddles</span>
+        </Typography>
+
+        <Typography as="h1" className="text-slate-400 text-sm mt-2">
+          {riddleCount} Riddles
         </Typography>
       </section>
 
       <div className="mt-4 text-center">
         <Typography as="h1" className="font-medium mb-4">
-          {riddle?.riddle}
+          {riddle?.question}
         </Typography>
 
         <Typography as="p" className="text-amber-300">
