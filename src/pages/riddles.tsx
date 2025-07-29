@@ -19,6 +19,10 @@ function Riddles() {
 
   const { data: riddle, isLoading } = useQuery({
     queryKey: [CONSTANTS.QUERY_KEY],
+    refetchOnWindowFocus: false, // Don't refetch when window regains focus
+    refetchOnMount: false, // Don't refetch on remount
+    refetchOnReconnect: false, // Don't refetch on reconnect
+    staleTime: Infinity, // Data stays fresh forever
     queryFn: async () => {
       const response = await fetch(CONSTANTS.URL);
 
@@ -27,6 +31,33 @@ function Riddles() {
       }
 
       return (await response.json()) as Riddle;
+
+      // let attemptCount = 0;
+      // const maxAttempts = 5;
+      //
+      // while (attemptCount < maxAttempts) {
+      //   const response = await fetch(CONSTANTS.URL);
+      //
+      //   if (!response.ok) {
+      //     return null;
+      //   }
+      //
+      //   const data = (await response.json()) as Riddle;
+      //
+      //   const wordCount = data.answer.trim().split(/\s+/).length;
+      //   if (wordCount <= 5) {
+      //     return data;
+      //   }
+      //
+      //   attemptCount++;
+      // }
+      //
+      // // If all attempts return long answers, just return the last one
+      // const lastResponse = await fetch(CONSTANTS.URL);
+      // if (!lastResponse.ok) {
+      //   return null;
+      // }
+      // return (await lastResponse.json()) as Riddle;
     },
   });
 
