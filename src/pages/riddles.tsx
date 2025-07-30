@@ -1,6 +1,17 @@
 import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Typography } from "@/components/ui/typography";
 import { getRandomRiddle, getRiddleCount } from "@/services/riddles";
+import { TooltipArrow } from "@radix-ui/react-tooltip";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -38,9 +49,22 @@ function Riddles() {
           <span className="text-rose-400">Riddles</span>
         </Typography>
 
-        <Typography as="h1" className="text-slate-400 text-sm mt-2">
+        <Typography className="text-slate-400 text-sm mt-2 mb-2">
           {riddleCount} Riddles
         </Typography>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Typography as="p" className="text-amber-300 hover:cursor-pointer">
+              💡 hint
+            </Typography>
+          </TooltipTrigger>
+          <TooltipContent className="bg-slate-800 p-4 text-center justify-center items-center flex">
+            <Typography as="p" className="text-amber-300">
+              {riddle?.hint}
+            </Typography>
+          </TooltipContent>
+        </Tooltip>
       </section>
 
       <div className="mt-4 text-center">
