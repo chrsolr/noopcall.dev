@@ -1,12 +1,5 @@
-import riddles from "@/data/riddles";
+import riddles, { type Riddle } from "@/data/riddles";
 import groupby from "lodash.groupby";
-
-export type Riddle = {
-  question: string;
-  answer: string;
-  category: string;
-  level: string;
-};
 
 export function getRandomRiddle(): Riddle {
   const randomIndex = Math.floor(Math.random() * riddles.length);
