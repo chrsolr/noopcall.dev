@@ -129,10 +129,10 @@ function NavBar() {
             <Link
               isExternal
               rel="noopener noreferrer"
-              to="https://github.com/chrsolr/open.nvim"
+              to="https://github.com/chrsolr/open-in.nvim"
               target="_blank"
             >
-              open.nvim
+              open-in.nvim
             </Link>
           </DropdownMenuItem>
 
