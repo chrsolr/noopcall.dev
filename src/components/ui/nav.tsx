@@ -120,6 +120,38 @@ function NavBar() {
 
           <DropdownMenuSeparator className="bg-slate-900" />
 
+          <DropdownMenuLabel>Nvim Plugins</DropdownMenuLabel>
+
+          <DropdownMenuItem
+            asChild
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
+          >
+            <Link
+              isExternal
+              rel="noopener noreferrer"
+              to="https://github.com/chrsolr/open.nvim"
+              target="_blank"
+            >
+              open.nvim
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem
+            asChild
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
+          >
+            <Link
+              isExternal
+              rel="noopener noreferrer"
+              to="https://github.com/chrsolr/quicky-uuid.nvim"
+              target="_blank"
+            >
+              quicky-uuid.nvim
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator className="bg-slate-900" />
+
           <DropdownMenuLabel>Misc</DropdownMenuLabel>
 
           <DropdownMenuItem
