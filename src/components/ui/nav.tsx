@@ -129,6 +129,19 @@ function NavBar() {
             <Link
               isExternal
               rel="noopener noreferrer"
+              to="https://codename.noopcall.dev"
+            >
+              Working On
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem
+            asChild
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
+          >
+            <Link
+              isExternal
+              rel="noopener noreferrer"
               to="/assets/files/resume.pdf"
               target="_blank"
             >
