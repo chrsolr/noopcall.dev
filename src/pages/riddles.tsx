@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
@@ -47,18 +52,18 @@ function Riddles() {
           {riddleCount} Riddles
         </Typography>
 
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Typography as="p" className="text-amber-300 hover:cursor-pointer">
-              💡 hint
-            </Typography>
-          </TooltipTrigger>
-          <TooltipContent className="bg-slate-800 p-4 text-center justify-center items-center flex">
-            <Typography as="p" className="text-amber-300">
-              {riddle?.hint}
-            </Typography>
-          </TooltipContent>
-        </Tooltip>
+        <Popover>
+          <PopoverTrigger className="text-amber-300 hover:cursor-pointer">
+            💡 hint
+          </PopoverTrigger>
+
+          <PopoverContent
+            side="top"
+            className="bg-slate-800 justify-center text-amber-300   flex border-none m-0 py-2"
+          >
+            {riddle?.hint}
+          </PopoverContent>
+        </Popover>
       </section>
 
       <div className="mt-4 text-center">
