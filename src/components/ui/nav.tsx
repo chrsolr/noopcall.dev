@@ -152,6 +152,36 @@ function NavBar() {
 
           <DropdownMenuSeparator className="bg-slate-900" />
 
+          <DropdownMenuLabel>Socials</DropdownMenuLabel>
+
+          <DropdownMenuItem
+            asChild
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
+          >
+            <Link
+              isExternal
+              rel="noopener noreferrer"
+              to="https://github.com/chrsolr"
+              target="_blank"
+            >
+              GitHub
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem
+            asChild
+            className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
+          >
+            <Link
+              isExternal
+              rel="noopener noreferrer"
+              to="https://www.linkedin.com/in/christiansoler/"
+              target="_blank"
+            >
+              LinkedIn
+            </Link>
+          </DropdownMenuItem>
+
           <DropdownMenuLabel>Misc</DropdownMenuLabel>
 
           <DropdownMenuItem
