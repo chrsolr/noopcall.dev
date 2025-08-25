@@ -4,11 +4,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Typography } from "@/components/ui/typography";
 import { getRandomRiddle, getRiddleCount } from "@/services/riddles";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
