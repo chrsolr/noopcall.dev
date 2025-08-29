@@ -1,3 +1,5 @@
+import orderBy from "lodash.orderby";
+
 export type MouseSensitivity = {
   game: string;
   hip: number | string;
@@ -36,18 +38,26 @@ export async function getMouseSens(): Promise<MouseSensitivity[] | undefined> {
     "https://raw.githubusercontent.com/chrsolr/chrsolr/refs/heads/main/files/mouse-sens.json",
   )
     .then((res) => res.json())
-    .then((sens) =>
-      sens?.map((s: MouseSensitivityResponse) => ({
-        game: s.Game,
-        hip: s.Hip,
-        ads: s.ADS,
-        fov: s.FOV,
-        dpi: s.DPI,
-        cm_per_360: s.cm_per_360,
-        extras: s.Extras,
-        mouse: s.Mouse,
-      })),
-    )
+    .then((sens) => {
+      const ordered = sens
+        ?.map((s: MouseSensitivityResponse) => ({
+          game: s.Game,
+          hip: s.Hip,
+          ads: s.ADS,
+          fov: s.FOV,
+          dpi: s.DPI,
+          cm_per_360: s.cm_per_360,
+          extras: s.Extras,
+          mouse: s.Mouse,
+        }))
+        .sort((a: MouseSensitivity, b: MouseSensitivity) => {
+          if (a.game === "Windows") return -1;
+          if (b.game === "Windows") return 1;
+          return a.game.localeCompare(b.game);
+        });
+
+      return ordered;
+    })
     .catch((err) => {
       console.error(err);
       return undefined;
