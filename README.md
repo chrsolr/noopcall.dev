@@ -1,6 +1,6 @@
 # NoopCall (Personal Website)
 
-Welcome to **Noopcall.dev**, a modern and minimalistic
+Welcome to **[Noopcall.dev](https://noopcall.dev)**, a modern and minimalistic
 web application built with TypeScript and React.
 This project serves as a personal portfolio and utility hub,
 showcasing various interactive tools, components, and resources.
