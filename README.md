@@ -1,69 +1,85 @@
-# React + TypeScript + Vite
+# NoopCall (Personal Website)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Noopcall.dev**, a modern and minimalistic
+web application built with TypeScript and React.
+This project serves as a personal portfolio and utility hub,
+showcasing various interactive tools, components, and resources.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Tools**:
+  - Binary Clock
+  - Flip-a-Coin
+  - Random Picker
+  - Riddles
+  - Advent of Code (AOC) solutions
 
-## Expanding the ESLint configuration
+- **Portfolio Resources**:
+  - Resume download
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend**: React, TypeScript
+- **Build Tool**: Vite
+- **Package Manager**: pnpm
+- **Styling**: Tailwind CSS
+- **Linting**: ESLint
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## File Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `src/components/`: Reusable UI components
+- `src/pages/`: Individual pages for tools and portfolio sections
+- `src/lib/`: Utility functions
+- `src/data/`: Static data (e.g., riddles)
+- `src/services/`: API integrations (e.g., GitHub services)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Node.js (v16+ recommended)
+- pnpm (v8+ recommended)
+
+### Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/noopcall.dev.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd noopcall.dev
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+### Scripts
+
+- **Development Server**:
+
+  ```bash
+  pnpm dev
+  ```
+
+- **Production Build**:
+
+  ```bash
+  pnpm build
+  ```
+
+- **Linting**:
+
+  ```bash
+  pnpm lint
+  ```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
