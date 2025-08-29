@@ -45,7 +45,7 @@ showcasing various interactive tools, components, and resources.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/noopcall.dev.git
+   git clone https://github.com/chrsolr/noopcall.dev.git
    ```
 
 2. Navigate to the project directory:
