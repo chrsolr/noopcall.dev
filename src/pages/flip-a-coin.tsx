@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "@/components/ui/link";
 import { Typography } from "@/components/ui/typography";
 import { useState } from "react";
 
@@ -28,7 +29,7 @@ function FlipACoin() {
 
   return (
     <div className="flex min-h-[calc(100svh-50px)] flex-col items-center justify-center select-none">
-      <section className="text-center">
+      <section className="text-center mb-2">
         <Typography as="h1" className="text-3xl font-medium lowercase">
           <span className="text-rose-400">Flip</span>
           <span className="text-amber-300">a</span>
@@ -59,6 +60,14 @@ function FlipACoin() {
           </div>
         </div>
       </section>
+
+      <Link
+        to="https://github.com/chrsolr/noopcall.dev/blob/main/src/pages/flip-a-coin.tsx"
+        isExternal
+        className="inline-block text-sm text-slate-400 hover:underline"
+      >
+        View Source Code
+      </Link>
     </div>
   );
 }
