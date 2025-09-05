@@ -1,5 +1,3 @@
-import orderBy from "lodash.orderby";
-
 export type MouseSensitivity = {
   game: string;
   hip: number | string;

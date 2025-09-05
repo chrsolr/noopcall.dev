@@ -1,5 +1,6 @@
 import { Link } from "@/components/ui/link";
 import { Typography } from "@/components/ui/typography";
+import orderBy from "lodash.orderby";
 
 function Blog() {
   const posts = [
@@ -18,6 +19,11 @@ function Blog() {
       title: "CoderCamps Bootcamp as a Student",
       href: "https://github.com/chrsolr/chrsolr/blob/main/blog/codercamps-bootcamp-as-a-student.md",
     },
+    {
+      date: "September 5, 2025",
+      title: "From VS Code to Neovim: My Journey",
+      href: "https://github.com/chrsolr/chrsolr/blob/main/blog/from-vscode-to-neovim-my-journey.md",
+    },
   ];
 
   return (
@@ -30,7 +36,7 @@ function Blog() {
       </section>
 
       <div>
-        {posts.map((post) => (
+        {orderBy(posts, ["date"], ["desc"]).map((post) => (
           <div key={post.title} className="flex flex-col p-4">
             <Typography as="p" className="font-medium">
               {post.date}
