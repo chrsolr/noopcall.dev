@@ -1,3 +1,4 @@
+import { Link } from "@/components/ui/link";
 import { Typography } from "@/components/ui/typography";
 import { useEffect, useState } from "react";
 
@@ -85,7 +86,7 @@ function BinaryClock() {
   }, []);
 
   return (
-    <div className="flex min-h-[calc(100svh-50px)] flex-col container mx-auto px-6">
+    <div className="flex min-h-[calc(100svh-50px)] flex-col container justify-center items-center mx-auto px-6">
       <section className="text-center">
         <Typography as="h1" className="text-3xl font-medium lowercase mb-8">
           <span className="text-rose-400">Binary</span>
@@ -110,26 +111,19 @@ function BinaryClock() {
             <ColumnGroup activeIndexes={timeAsDigits.seconds[1]} />
           </div>
         </div>
+
+        <Typography as="h2" className="text-2xl text-center mt-4 mb-8">
+          {getClockTimeLabel(timeAsDigits)}
+        </Typography>
+
+        <Link
+          to="https://github.com/chrsolr/noopcall.dev/blob/main/src/pages/binary-clock.tsx"
+          isExternal
+          className="inline-block text-sm text-slate-400 hover:underline"
+        >
+          View Source Code
+        </Link>
       </div>
-
-      <Typography as="h2" className="text-2xl text-center mt-4 mb-8">
-        {getClockTimeLabel(timeAsDigits)}
-      </Typography>
-
-      <iframe
-        className="mt-8"
-        src="https://codesandbox.io/embed/reactbinaryclock-2zk7rc?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FBinaryClock.tsx&theme=dark&view=editor"
-        style={{
-          width: "100%",
-          height: "100vh",
-          border: 0,
-          borderRadius: "4px",
-          overflow: "hidden",
-        }}
-        title="ReactBinaryClock"
-        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-      ></iframe>
     </div>
   );
 }

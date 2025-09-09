@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "@/components/ui/link";
 import {
   Popover,
   PopoverContent,
@@ -91,6 +92,14 @@ function Riddles() {
           Refresh
         </Button>
       </div>
+
+      <Link
+        to="https://github.com/chrsolr/noopcall.dev/blob/main/src/pages/flip-a-coin.tsx"
+        isExternal
+        className="inline-block text-sm text-slate-400 hover:underline"
+      >
+        View Source Code
+      </Link>
     </div>
   );
 }

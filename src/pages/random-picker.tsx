@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "@/components/ui/link";
 import { Typography } from "@/components/ui/typography";
 import { wait } from "@/lib/utils";
 import { useState } from "react";
@@ -182,6 +183,14 @@ function RandomPicker() {
           </Button>
         </div>
       </section>
+
+      <Link
+        to="https://github.com/chrsolr/noopcall.dev/blob/main/src/pages/random-picker.tsx"
+        isExternal
+        className="inline-block text-sm text-slate-400 hover:underline"
+      >
+        View Source Code
+      </Link>
     </div>
   );
 }
