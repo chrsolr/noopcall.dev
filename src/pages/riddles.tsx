@@ -94,7 +94,7 @@ function Riddles() {
       </div>
 
       <Link
-        to="https://github.com/chrsolr/noopcall.dev/blob/main/src/pages/flip-a-coin.tsx"
+        to="https://github.com/chrsolr/noopcall.dev/blob/main/src/pages/riddles.tsx"
         isExternal
         className="inline-block text-sm text-slate-400 hover:underline"
       >
