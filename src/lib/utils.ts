@@ -8,3 +8,11 @@ export function cn(...inputs: ClassValue[]) {
 export async function wait(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+export function stringToHyphen(str: string) {
+  if (!str) {
+    return str
+  }
+  
+  return str.replace(/[^\s]/g, "-")
+}
