@@ -54,7 +54,7 @@ function Riddles() {
 
           <PopoverContent
             side="top"
-            className="bg-slate-800 justify-center text-amber-300   flex border-none m-0 py-2"
+            className="bg-slate-800 justify-center text-amber-300 flex border-none m-0 py-2"
           >
             {riddle?.hint}
           </PopoverContent>
