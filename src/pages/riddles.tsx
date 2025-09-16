@@ -6,6 +6,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Typography } from "@/components/ui/typography";
+import { stringToHyphen } from "@/lib/utils";
 import { getRandomRiddle, getRiddleCount } from "@/services/riddles";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
@@ -67,7 +68,7 @@ function Riddles() {
         </Typography>
 
         <Typography as="p" className="text-amber-300">
-          {showAnswer ? riddle?.answer : riddle?.answer.replace(/[^\s]/g, "-")}
+          {showAnswer ? riddle?.answer : stringToHyphen(riddle?.answer ?? "")}
         </Typography>
       </div>
 
