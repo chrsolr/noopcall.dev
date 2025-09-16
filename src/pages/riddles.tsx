@@ -11,7 +11,6 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
 const CONSTANTS = {
-  URL: "https://riddles-api.vercel.app/random",
   QUERY_KEY: "RIDDLES",
 } as const;
 
