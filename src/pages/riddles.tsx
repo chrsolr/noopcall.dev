@@ -1,4 +1,10 @@
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Link } from "@/components/ui/link";
 import {
   Popover,
@@ -7,7 +13,12 @@ import {
 } from "@/components/ui/popover";
 import { Typography } from "@/components/ui/typography";
 import { stringToHyphen } from "@/lib/utils";
-import { getRandomRiddle, getRiddleCount } from "@/services/riddles";
+import {
+  getCategories,
+  getCategory,
+  getRandomRiddle,
+  getRiddleCount,
+} from "@/services/riddles";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -15,14 +26,13 @@ const CONSTANTS = {
   QUERY_KEY: "RIDDLES",
 } as const;
 
-// TODO: Add categories
-
 function Riddles() {
-  const [showAnswer, setShowAnswer] = useState(false);
   const queryClient = useQueryClient();
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const riddleCount = getRiddleCount();
-  // const categories = getCategories();
+  const categories = [...getCategories(), "Random"];
 
   const { data: riddle, isLoading } = useQuery({
     queryKey: [CONSTANTS.QUERY_KEY],
@@ -32,6 +42,16 @@ function Riddles() {
     staleTime: Infinity, // Data stays fresh forever
     queryFn: () => getRandomRiddle(),
   });
+
+  const onCategorySelect = (category: string) => {
+    const filteredRiddle =
+      category === "Random" ? getRandomRiddle() : getCategory(category);
+
+    queryClient.setQueryData([CONSTANTS.QUERY_KEY], filteredRiddle);
+
+    setSelectedCategory(category);
+    setShowAnswer(false);
+  };
 
   if (isLoading) {
     return <></>;
@@ -48,18 +68,47 @@ function Riddles() {
           {riddleCount} Riddles
         </Typography>
 
-        <Popover>
-          <PopoverTrigger className="text-amber-300 hover:cursor-pointer">
-            💡 hint
-          </PopoverTrigger>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Button
+              className="hover:cursor-pointer bg-slate-800 hover:bg-slate-950 select-none"
+              onClick={() => {
+                setShowAnswer(true);
+              }}
+            >
+              {`Category: ${selectedCategory ?? "Random"}`}
+            </Button>
+          </DropdownMenuTrigger>
 
-          <PopoverContent
-            side="top"
-            className="bg-slate-800 justify-center text-amber-300 flex border-none m-0 py-2"
-          >
-            {riddle?.hint}
-          </PopoverContent>
-        </Popover>
+          <DropdownMenuContent className="hover:bg-slate-800 bg-slate-800 border-none text-gray-100 justify-center text-center">
+            {categories.map((category) => (
+              <DropdownMenuItem
+                key={category}
+                className="hover:!bg-slate-700 hover:!text-violet-300 justify-center text-center cursor-pointer"
+                onClick={() => onCategorySelect(category)}
+              >
+                <Typography className="text-slate-400 text-sm mt-2 mb-2">
+                  {category}
+                </Typography>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <div className="mt-2 flex justify-center">
+          <Popover>
+            <PopoverTrigger className="text-amber-300 hover:cursor-pointer block justify-center items-center">
+              💡 hint
+            </PopoverTrigger>
+
+            <PopoverContent
+              side="top"
+              className="bg-slate-800 justify-center text-amber-300 flex border-none m-0 py-2"
+            >
+              {riddle?.hint}
+            </PopoverContent>
+          </Popover>
+        </div>
       </section>
 
       <div className="mt-4 text-center">
@@ -89,7 +138,7 @@ function Riddles() {
             setShowAnswer(false);
           }}
         >
-          Refresh
+          Next
         </Button>
       </div>
 
