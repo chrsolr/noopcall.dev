@@ -26,6 +26,12 @@ const CONSTANTS = {
   QUERY_KEY: "RIDDLES",
 } as const;
 
+// TODO:
+// - Save previously answered riddle
+//   in local storage.
+// - Don't repeat answered riddle.
+// - Show viewed count of riddle.
+//   47 of 288 riddles
 function Riddles() {
   const queryClient = useQueryClient();
   const [showAnswer, setShowAnswer] = useState(false);
